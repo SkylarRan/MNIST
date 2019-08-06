@@ -3,7 +3,7 @@
 预测类别：tf.nn.softmax()
 损失函数：交叉熵
 梯度下降：ADAM优化器来做梯度最速下降
-准确度：
+准确度：0.992
 """
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -90,7 +90,7 @@ train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 
 correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(Y, 1))
 
-accuracy = tf.reduce_mean(tf.cast(correct_prediction), "float")
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 sess.run(tf.initialize_all_variables())
 

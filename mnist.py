@@ -4,16 +4,17 @@
 预测类别：tf.nn.softmax()
 损失函数：平方差 tf.reduce_mean(tf.square(y - prediction))
 梯度下降：tf.train.GradientDescentOptimizer(0.2).minimize(loss)
-准确度：
+准确度：0.79
 """
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 
 mnist_data = input_data.read_data_sets("MNIST.data", one_hot=True)
 batch_size = 100
+# //在Python中表示整数除法
 batch_num = mnist_data.train.num_examples//batch_size
 
-#训练数据 图片大小：28*28
+# 训练数据 图片大小：28*28
 x = tf.placeholder(tf.float32, [None, 784])
 # 标签， 数字0-9，共10个类别
 y = tf.placeholder(tf.float32, [None, 10])

@@ -3,7 +3,7 @@
 预测类别：tf.nn.softmax()
 损失函数：交叉熵 -tf.reduce_sum(y * tf.log(prediction))
 梯度下降：tf.train.GradientDescentOptimizer(0.01).minimize(loss)
-准确度：
+准确度：0.91
 """
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -37,4 +37,4 @@ for i in range(1000):
 
     correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-    print(sess.run(accuracy, feed_dict={x: mnist.test.images, y_:mnist.test.labels}))
+    print(i, sess.run(accuracy, feed_dict={x: mnist.test.images, y_:mnist.test.labels}))
